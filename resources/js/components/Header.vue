@@ -12,7 +12,7 @@
                 <li class="nav-item active">
                     <router-link to="/" class="nav-link">Home</router-link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="isAuth">
                     <router-link to="/todos" class="nav-link">Todos</router-link>
                 </li>
                 <li class="nav-item" v-if="isAuth">
