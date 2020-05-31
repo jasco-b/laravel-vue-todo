@@ -9,21 +9,21 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item active">
-                    <router-link to="/" class="nav-link">Home</router-link>
-                </li>
-                <li class="nav-item" v-if="isAuth">
-                    <router-link to="/todos" class="nav-link">Todos</router-link>
-                </li>
+                <router-link class="nav-item"  :to="{name: 'home'}" exact="/">
+                    <a class="nav-link">Home</a>
+                </router-link>
+                <router-link class="nav-item" v-if="isAuth" :to="{name: 'todos'}">
+                    <a  class="nav-link">Todos</a>
+                </router-link>
                 <li class="nav-item" v-if="isAuth">
                     <a href="#" class="nav-link" v-on:click="logout">Logout</a>
                 </li>
-                <li class="nav-item" v-if="isAuth">
-                    <router-link to="/profile" class="nav-link">{{ userName}}</router-link>
-                </li>
-                <li class="nav-item" v-if="!isAuth">
-                    <router-link to="/login" class="nav-link">Login</router-link>
-                </li>
+                <router-link class="nav-item" v-if="isAuth"  :to="{name: 'profile'}">
+                    <a  class="nav-link">{{ userName }}</a>
+                </router-link>
+                <router-link class="nav-item" v-if="!isAuth" :to="{name: 'login'}">
+                    <a  class="nav-link">Login</a>
+                </router-link>
             </ul>
         </div>
     </nav>

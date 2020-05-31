@@ -1,12 +1,14 @@
+import VueRouter from 'vue-router';
 import Login from './components/Login.vue';
 import Home from './components/Home.vue';
 import Todo from "./components/Todo";
 import Profile from "./components/Profile";
-import VueRouter from 'vue-router';
+import NotFound from './components/NotFound';
 
 
 const routes = {
     'mode': 'history',
+    linkActiveClass: 'active',
     routes: [{
         path: '/',
         name: 'home',
@@ -37,10 +39,20 @@ const routes = {
             meta: {
                 auth: true
             }
-        }
+        },
+        {
+            path: '/404',
+            name: '404',
+            component: NotFound
+        },
+        {
+            path: '*',
+            redirect: '/404'
+        },
     ]
 };
 
 export default new VueRouter(
-    routes // short for `routes: routes`
+    routes // short for `routes: routes`,
+
 );
