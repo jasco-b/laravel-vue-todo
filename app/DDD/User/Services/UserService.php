@@ -9,18 +9,18 @@
 namespace App\DDD\User\Services;
 
 
-use App\DDD\User\Repos\UserRepo;
+use App\DDD\User\Interfaces\IUserRepo;
 use App\DDD\User\Vo\UserVo;
 use App\User;
 
 class UserService
 {
     /**
-     * @var UserRepo
+     * @var IUserRepo
      */
     private $userRepo;
 
-    public function __construct(UserRepo $userRepo)
+    public function __construct(IUserRepo $userRepo)
     {
         $this->userRepo = $userRepo;
     }

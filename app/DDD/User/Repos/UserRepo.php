@@ -9,10 +9,11 @@
 namespace App\DDD\User\Repos;
 
 
+use App\DDD\User\Interfaces\IUserRepo;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class UserRepo
+class UserRepo implements IUserRepo
 {
     /**
      * @param $id

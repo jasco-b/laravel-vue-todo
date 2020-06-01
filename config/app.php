@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +167,8 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        \App\DDD\User\ServiceProviders\UserServiceProvider::class,
+        \App\DDD\Todo\ServiceProvider\TodoProvider::class,
         /*
          * Application Service Providers...
          */

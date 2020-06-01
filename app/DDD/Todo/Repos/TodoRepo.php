@@ -9,11 +9,12 @@
 namespace App\DDD\Todo\Repos;
 
 
+use App\DDD\Todo\Interfaces\ITodoRepo;
 use App\Models\Todo;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class TodoRepo
+class TodoRepo implements ITodoRepo
 {
     /**
      * @param $id

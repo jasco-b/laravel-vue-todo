@@ -12,7 +12,7 @@ namespace App\DDD\Todo\Services;
 use App\DDD\Todo\Exception\AlreadyCompletedException;
 use App\DDD\Todo\Exception\CannotChangeCompletedTodoException;
 use App\DDD\Todo\Exception\ValidationException;
-use App\DDD\Todo\Repos\TodoRepo;
+use App\DDD\Todo\Interfaces\ITodoRepo;
 use App\DDD\Todo\Vo\TodoVo;
 use App\Models\Todo;
 use App\User;
@@ -21,11 +21,11 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class TodoService
 {
     /**
-     * @var TodoRepo
+     * @var ITodoRepo
      */
     private $repo;
 
-    public function __construct(TodoRepo $repo)
+    public function __construct(ITodoRepo $repo)
     {
         $this->repo = $repo;
     }
@@ -33,7 +33,7 @@ class TodoService
     /**
      * @param User $user
      * @param int $perPage
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator | array
      */
     public function getListForUser(User $user = null, $perPage = 10)
     {
